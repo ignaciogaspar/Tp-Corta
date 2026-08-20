@@ -21,6 +21,7 @@
       <div class="stat"><span id="url-original" class="numero">-</span><span class="etiqueta">URL original</span></div>
       <div class="stat"><span id="fecha-creado" class="numero">-</span><span class="etiqueta">creado el</span></div>
     </div>
+    <p id="mensaje" class="sub">Ingresá un código para consultar sus estadísticas.</p>
 
     <p class="pie"><a href="index.html">Volver a acortar</a></p>
   </main>
@@ -30,10 +31,12 @@
     const clicks = document.getElementById('clicks');
     const urlOriginal = document.getElementById('url-original');
     const fechaCreado = document.getElementById('fecha-creado');
+    const mensaje = document.getElementById('mensaje');
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
       const codigo = document.getElementById('codigo').value.trim();
+      mensaje.textContent = 'Consultando datos...';
 
       try {
         const response = await fetch(`/api/links/${codigo}/stats`);
@@ -45,10 +48,12 @@
         clicks.textContent = data.clicks;
         urlOriginal.textContent = data.url;
         fechaCreado.textContent = new Date(data.creado).toLocaleString();
+        mensaje.textContent = `Resultados para ${data.codigo}`;
       } catch (error) {
         clicks.textContent = '-';
         urlOriginal.textContent = 'No encontrado';
         fechaCreado.textContent = '-';
+        mensaje.textContent = 'No existe ese código corto.';
       }
     });
   </script>
