@@ -53,6 +53,37 @@ curl http://localhost:3000/api/links/a3k/stats
 
 En Railway la base de datos se configura como un servicio PostgreSQL y la aplicación consume `DATABASE_URL` como variable de entorno. No se guardan credenciales ni secretos en el repositorio.
 
+## Trabajo en equipo y reporte de cambios
+
+Cada miembro puede sumar su cuenta de GitHub como colaborador del repositorio y trabajar con branches propias.
+
+Para generar un reporte real de cambios del repo desde cualquier máquina:
+
+```bash
+./scripts/reporte-cambios.sh
+```
+
+Ejemplo de cron para una máquina personal:
+
+```bash
+crontab -e
+0 * * * * cd /ruta/al/repo/corta && ./scripts/reporte-cambios.sh > ~/corta-reporte.txt
+```
+
+Eso deja un resumen con commits nuevos, autores y archivos tocados.
+
+## Memoria del agente
+
+El repo incluye la memoria operativa en `AGENTS.md` y el comando de Claude Code en `.claude/commands/collect-memory.md`.
+
+Cuando el equipo quiera actualizar la memoria del agente, se puede ejecutar esta instrucción:
+
+```text
+/collect-memory
+```
+
+La intención es resumir avances, decisiones y preferencias del equipo para que la próxima sesión arranque con contexto actualizado.
+
 ## Archivos clave
 
 - `server.js`: servidor Express y lógica de negocio.
@@ -61,3 +92,5 @@ En Railway la base de datos se configura como un servicio PostgreSQL y la aplica
 - `public/stats.html`: interfaz para ver estadísticas.
 - `links.json`: respaldo local para desarrollo sin base de datos.
 - `SPEC.md`: especificación funcional del proyecto.
+- `AGENTS.md`: memoria operativa del proyecto.
+- `scripts/reporte-cambios.sh`: reporta commits y cambios del repo.
