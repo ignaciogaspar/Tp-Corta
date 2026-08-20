@@ -46,5 +46,29 @@
     "url": "https://es.wikipedia.org/wiki/Acortador_de_URL",
     "clicks": 5,
     "creado": "2026-05-06T13:27:38.000Z"
+  },
+  {
+    "codigo": "un6",
+    "url": "https://www.google.com",
+    "clicks": 0,
+    "creado": "2026-08-20T00:20:40.736Z"
+  },
+  {
+    "codigo": "sgc",
+    "url": "https://example.com/alpha",
+    "clicks": 0,
+    "creado": "2026-08-20T00:26:14.202Z"
+  },
+  {
+    "codigo": "u5l",
+    "url": "https://example.com/redirect-target",
+    "clicks": 1,
+    "creado": "2026-08-20T00:26:14.235Z"
+  },
+  {
+    "codigo": "xrt",
+    "url": "https://example.com/stats-check",
+    "clicks": 0,
+    "creado": "2026-08-20T00:26:14.272Z"
   }
 ]
